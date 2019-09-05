@@ -8,6 +8,7 @@ export class TonePiano extends LitElement {
 	static get properties(){
 		return {
 			polyphonic : { type : Boolean },
+			showmidi : { type : Boolean },
 		}
 	}
 
@@ -30,15 +31,17 @@ export class TonePiano extends LitElement {
 
 	firstUpdated(){
 		super.firstUpdated()
-		const keyboard = this.shadowRoot.querySelector('tone-keyboard')
-		this.shadowRoot.querySelector('tone-midi-in').addEventListener('noteon', e => {
-			e.stopPropagation()
-			keyboard.noteon(e.detail.midi)
-		})
-		this.shadowRoot.querySelector('tone-midi-in').addEventListener('noteoff', e => {
-			e.stopPropagation()
-			keyboard.noteoff(e.detail.midi)
-		})
+		if (this.showmidi) {
+			const keyboard = this.shadowRoot.querySelector('tone-keyboard')
+			this.shadowRoot.querySelector('tone-midi-in').addEventListener('noteon', e => {
+				e.stopPropagation()
+				keyboard.noteon(e.detail.midi)
+			})
+			this.shadowRoot.querySelector('tone-midi-in').addEventListener('noteoff', e => {
+				e.stopPropagation()
+				keyboard.noteoff(e.detail.midi)
+			})
+		}
 
 		window.addEventListener('resize', this._resize.bind(this))
 		setTimeout(() => this._resize(), 100)
@@ -81,8 +84,7 @@ export class TonePiano extends LitElement {
 
 			</style>
 			<div id="container">
-				<!--<tone-midi-in>
-				</tone-midi-in>-->
+				${this.showmidi ? '<tone-midi-in></tone-midi-in>' : ''}
 				<tone-keyboard ?polyphonic=${this.polyphonic}></tone-keyboard>
 			</div>
 		`
