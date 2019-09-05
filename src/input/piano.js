@@ -72,17 +72,17 @@ export class TonePiano extends LitElement {
 				}
 
 				tone-midi-in {
-				    position: relative;
-				    top: 5px;
-				    right: 5px;
-				    display: inline-block;
-				    float: right;
+					position: relative;
+					top: 5px;
+					right: 5px;
+					display: inline-block;
+					float: right;
 				}
 
 			</style>
 			<div id="container">
-				<tone-midi-in>
-				</tone-midi-in>
+				<!--<tone-midi-in>
+				</tone-midi-in>-->
 				<tone-keyboard ?polyphonic=${this.polyphonic}></tone-keyboard>
 			</div>
 		`
