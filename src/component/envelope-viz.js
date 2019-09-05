@@ -1,5 +1,6 @@
 import { LitElement, html } from '@polymer/lit-element'
 import { ToneOfflineViz } from '../viz/offline-viz'
+import Tone from 'tone'
 
 class ToneEnvelopeViz extends ToneOfflineViz {
 

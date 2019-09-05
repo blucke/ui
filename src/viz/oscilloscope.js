@@ -1,4 +1,5 @@
 import { LitElement, html } from '@polymer/lit-element'
+import Tone from 'tone'
 
 export class ToneOscilloscope extends LitElement {
 

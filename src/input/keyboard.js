@@ -1,6 +1,7 @@
 import { LitElement, html } from '@polymer/lit-element'
 import AudioKeys from 'audiokeys'
 import { resume } from '../util/resume'
+import Tone from 'tone'
 
 ///////////////////////////////////////////////////////////////////////////////
 // NOTE

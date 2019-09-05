@@ -1,5 +1,6 @@
 import { LitElement, html } from '@polymer/lit-element'
 import { Waveforms } from './waveforms'
+import Tone from 'tone'
 
 class ToneWaveform extends LitElement {
 
